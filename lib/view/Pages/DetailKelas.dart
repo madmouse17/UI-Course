@@ -482,6 +482,7 @@ class _DetailKelasState extends State<DetailKelas> {
             ElevatedButton(
               onPressed: () {},
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Icon(Icons.add),
                   Text(

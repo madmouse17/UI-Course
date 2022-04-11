@@ -51,7 +51,7 @@ class _BottomBarState extends State<BottomBar> {
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: ImageIcon(AssetImage('assets/BottomBar/Navbar_Home.png')),
-              label: 'BottomBar',
+              label: 'Home',
               activeIcon: ImageIcon(
                   AssetImage('assets/BottomBar/Navbar_Home_active.png')),
             ),
