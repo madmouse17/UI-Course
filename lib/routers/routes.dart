@@ -7,6 +7,7 @@ import 'package:ui_course/view/Onboarding/Onboarding3.dart';
 import 'package:ui_course/view/Onboarding/Onboarding4.dart';
 import 'package:ui_course/view/Onboarding/Welcome.dart';
 import 'package:ui_course/view/Pages/BottomBar.dart';
+import 'package:ui_course/view/Pages/DetailKelas.dart';
 import 'package:ui_course/view/Pages/Home.dart';
 import 'package:ui_course/view/register.dart';
 import 'package:ui_course/view/verify-otp.dart';
@@ -52,6 +53,10 @@ class routes {
     GetPage(
       name: routeName.bottomBar,
       page: () => const BottomBar(),
+    ),
+    GetPage(
+      name: routeName.detailKelas,
+      page: () => DetailKelas(),
     )
   ];
 }

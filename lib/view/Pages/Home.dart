@@ -3,8 +3,11 @@ import 'dart:ui';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:ui_course/_partials/mediaQuery.dart';
 import 'package:ui_course/_partials/constant.dart';
+import 'package:ui_course/routers/routeName/routeName.dart';
 import 'package:ui_course/widgets/KategoriSliders.dart';
 import 'package:ui_course/widgets/headTextList.dart';
 
@@ -56,6 +59,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle(
+          // Status bar color
+          statusBarColor: Colors.transparent,
+        ),
         title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           AutoSizeText(
             'Hallo, Joshua',
@@ -70,7 +77,7 @@ class _HomeState extends State<Home> {
           )
         ]),
         automaticallyImplyLeading: false,
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
           GestureDetector(
@@ -197,8 +204,13 @@ class _HomeState extends State<Home> {
                         title: "UI/UX Design Fundamental",
                         rating: "4.9",
                         price: "Rp. 950.000",
-                        onTap: () {},
-                        onWishlist: () {},
+                        onTap: () {
+                          Get.toNamed(routeName.detailKelas);
+                          print('tap');
+                        },
+                        onWishlist: () {
+                          print('wish');
+                        },
                       ),
                       CardPopuler(
                         image: 'assets/Home/Gambar_2.png',
@@ -255,62 +267,59 @@ class CardPopuler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: mediaWidth / 3,
       margin: EdgeInsets.only(top: 15),
-      child: GestureDetector(
-        onTap: () => onTap,
+      child: InkWell(
+        onTap: () => onTap(),
         child: Card(
           elevation: 3,
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          child: Stack(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(image),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: AutoSizeText(
-                      title,
-                      maxLines: 1,
-                      style: themeText.titleSmall!
-                          .copyWith(fontWeight: FontWeight.bold),
+              Image.asset(image),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: AutoSizeText(
+                  title,
+                  maxLines: 1,
+                  style: themeText.titleSmall!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset('assets/Home/Bintang.png'),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 5),
+                      child: Text(rating),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.only(
+                    top: 5, left: 10, bottom: 10, right: 10),
+                width: mediaWidth / 2,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AutoSizeText(
+                      price,
+                      style: themeText.titleSmall!.copyWith(
+                          fontWeight: FontWeight.bold, color: primaryColor),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Image.asset('assets/Home/Bintang.png'),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5),
-                          child: Text(rating),
-                        )
-                      ],
+                    GestureDetector(
+                      onTap: () => onWishlist(),
+                      child: Image.asset(
+                        'assets/Home/Love.png',
+                      ),
                     ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(
-                        top: 5, left: 10, bottom: 10, right: 10),
-                    width: mediaWidth / 2,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        AutoSizeText(
-                          price,
-                          style: themeText.titleSmall!.copyWith(
-                              fontWeight: FontWeight.bold, color: primaryColor),
-                        ),
-                        GestureDetector(
-                          onTap: () => onWishlist,
-                          child: Image.asset(
-                            'assets/Home/Love.png',
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),

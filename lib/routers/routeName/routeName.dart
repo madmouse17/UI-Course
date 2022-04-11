@@ -1,3 +1,5 @@
+import 'package:ui_course/view/Pages/DetailKelas.dart';
+
 class routeName {
   static const root = "/";
   static const bottomBar = "/bottom-bar";
@@ -8,4 +10,5 @@ class routeName {
   static const register = '/register';
   static const otp = '/otp';
   static const home = '/home';
+  static const detailKelas = '/detail-kelas';
 }
