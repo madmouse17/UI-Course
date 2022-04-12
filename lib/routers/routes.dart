@@ -7,8 +7,9 @@ import 'package:ui_course/view/Onboarding/Onboarding3.dart';
 import 'package:ui_course/view/Onboarding/Onboarding4.dart';
 import 'package:ui_course/view/Onboarding/Welcome.dart';
 import 'package:ui_course/view/Pages/BottomBar.dart';
-import 'package:ui_course/view/Pages/DetailKelas.dart';
-import 'package:ui_course/view/Pages/Home.dart';
+import 'package:ui_course/view/Pages/DetailKelas/DKController.dart';
+import 'package:ui_course/view/Pages/DetailKelas/DetailKelas.dart';
+import 'package:ui_course/view/Pages/Home/Home.dart';
 import 'package:ui_course/view/register.dart';
 import 'package:ui_course/view/verify-otp.dart';
 

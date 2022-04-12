@@ -1,0 +1,34 @@
+[
+   {
+      "id": "1",
+      "image": "assets/Home/Gambar_1.png",
+      "title": "UI/UX Design Fundamental",
+      "rating": "4.9",
+      "price": "Rp. 950.000",
+      "detail": "Pada kelas ini kamu akan mempelajari semua fundamental dari UI/UX Design dan mengerjakan untuk menjadikan kamu sebagai UI/UX Designer yang siap kerja."
+   },
+   {
+      "id": "2",
+      "image": "assets/Home/Gambar_2.png",
+      "title": "Full Stack Developer",
+      "rating": "4.9",
+      "price": "Rp. 2.250.000",
+      "detail": "Laboris ullamco cillum duis pariatur non eiusmod. Excepteur Lorem officia consectetur aliquip. Commodo aute labore velit aliqua ipsum nisi. Irure commodo occaecat consectetur eiusmod eiusmod culpa fugiat consectetur dolor cillum nostrud."
+   },
+   {
+      "id": "3",
+      "image": "assets/Home/Gambar_3.png",
+      "title": "Digital Marketing",
+      "rating": "4.9",
+      "price": "Rp. 2.250.000",
+      "detail": "Qui tempor culpa adipisicing eu. Incididunt culpa aliquip voluptate aliqua non eiusmod exercitation laboris ex magna non non ea sunt. Dolore nulla proident incididunt culpa sit ipsum dolor aliqua commodo commodo. Occaecat ea ut commodo aute duis pariatur non incididunt qui nisi eu. Ullamco id occaecat voluptate aute ipsum."
+   },
+   {
+      "id": "4",
+      "image": "assets/Home/Gambar_4.png",
+      "title": "Front-end Developer",
+      "rating": "4.9",
+      "price": "Rp. 2.250.000",
+      "detail": "Ipsum velit proident fugiat ad dolor exercitation ea anim et magna fugiat dolor ad. Occaecat anim anim consectetur aute sunt esse ullamco veniam. Dolor ex ea occaecat nostrud enim ad veniam. Aliqua consectetur labore duis ea reprehenderit duis magna amet mollit elit. Elit in quis cupidatat nostrud ullamco sit velit."
+   }
+]

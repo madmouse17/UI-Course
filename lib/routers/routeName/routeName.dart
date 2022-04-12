@@ -1,4 +1,4 @@
-import 'package:ui_course/view/Pages/DetailKelas.dart';
+import 'package:ui_course/view/Pages/DetailKelas/DetailKelas.dart';
 
 class routeName {
   static const root = "/";

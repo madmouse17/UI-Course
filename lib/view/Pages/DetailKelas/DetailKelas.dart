@@ -3,15 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:ui_course/_partials/constant.dart';
 import 'package:expandable/expandable.dart';
+import 'package:ui_course/view/Pages/DetailKelas/DKController.dart';
 
-class DetailKelas extends StatefulWidget {
-  DetailKelas({Key? key}) : super(key: key);
+class DetailKelas extends StatelessWidget {
+  dkController dk = Get.put(dkController());
 
-  @override
-  State<DetailKelas> createState() => _DetailKelasState();
-}
-
-class _DetailKelasState extends State<DetailKelas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,11 +17,16 @@ class _DetailKelasState extends State<DetailKelas> {
           icon: Icon(Icons.arrow_back_ios_new_rounded),
           color: Colors.black,
         ),
-        title: Text(
-          "UI/UX Fundamental",
-          style: Get.textTheme.headline5!
-              .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
-        ),
+        title: Obx(() {
+          return (dk.data.value['title'] == null)
+              ? CircularProgressIndicator()
+              : Text(
+                  // ignore: invalid_use_of_protected_member
+                  dk.data.value['title'],
+                  style: Get.textTheme.headline5!.copyWith(
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                );
+        }),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         systemOverlayStyle:
@@ -64,11 +65,15 @@ class _DetailKelasState extends State<DetailKelas> {
                 ),
                 Column(
                   children: [
-                    Text(
-                      '4.9',
-                      style: Get.textTheme.headline6!
-                          .copyWith(color: primaryColor),
-                    ),
+                    Obx(() {
+                      return (dk.data.value['rating'] == null)
+                          ? CircularProgressIndicator()
+                          : Text(
+                              dk.data.value['rating'],
+                              style: Get.textTheme.headline6!
+                                  .copyWith(color: primaryColor),
+                            );
+                    }),
                     Text(
                       "Rating",
                       style: Get.textTheme.caption,
@@ -77,26 +82,35 @@ class _DetailKelasState extends State<DetailKelas> {
                 )
               ],
             ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: Get.height / 50),
-              height: Get.height / 3.5,
-              width: Get.width,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/Detail_Kelas/Video.png"),
-                    fit: BoxFit.cover),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Image.asset("assets/Detail_Kelas/video-circle.png"),
-            ),
+            Obx(() {
+              return (dk.data.value['image'] == null)
+                  ? CircularProgressIndicator()
+                  : Container(
+                      margin: EdgeInsets.symmetric(vertical: Get.height / 50),
+                      height: Get.height / 3.5,
+                      width: Get.width,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(dk.data.value['image']),
+                            fit: BoxFit.cover),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child:
+                          Image.asset("assets/Detail_Kelas/video-circle.png"),
+                    );
+            }),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "Rp. 950.000",
-                  style: Get.textTheme.headline5!
-                      .copyWith(fontWeight: FontWeight.bold),
-                ),
+                Obx(() {
+                  return (dk.data.value['price'] == null)
+                      ? CircularProgressIndicator()
+                      : Text(
+                          dk.data.value['price'],
+                          style: Get.textTheme.headline5!
+                              .copyWith(fontWeight: FontWeight.bold),
+                        );
+                }),
                 Image.asset("assets/Detail_Kelas/Love.png")
               ],
             ),
@@ -107,10 +121,14 @@ class _DetailKelasState extends State<DetailKelas> {
                 style: Get.textTheme.titleLarge,
               ),
             ),
-            Text(
-              "Pada kelas ini kamu akan mempelajari semua fundamental dari UI/UX Design dan mengerjakan untuk menjadikan kamu sebagai UI/UX Designer yang siap kerja.",
-              textAlign: TextAlign.justify,
-            ),
+            Obx(() {
+              return (dk.data.value['detail'] == null)
+                  ? CircularProgressIndicator()
+                  : Text(
+                      dk.data.value['detail'],
+                      textAlign: TextAlign.justify,
+                    );
+            }),
             Padding(
               padding: EdgeInsets.symmetric(vertical: Get.height * 0.03),
               child: Text(
